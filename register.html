@@ -48,11 +48,34 @@
         button:hover {
             background-color: #0056b3;
         }
+
+        .flash-messages {
+            color: white;
+            background-color: #ff4d4d;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .flash-success {
+            background-color: #28a745;
+        }
     </style>
 </head>
 <body>
     <div class="register-container">
         <h2>Create Account</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-messages {% if category == 'success' %}flash-success{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
         <form method="POST" action="{{ url_for('register') }}">
             <select name="role" id="role-select" required>
                 <option value="student">Student</option>
@@ -70,20 +93,12 @@
 
             <div id="admin-fields" style="display: none;">
                 <input type="text" name="admin_name" placeholder="Admin Name" required>
-                <input type="text" name="admin_id" placeholder="Admin ID Number" required>
-                <input type="email" name="admin_email" placeholder="Admin Email" required>
+                <input type="text" name="employee_id" placeholder="Admin Employee ID" required>
             </div>
 
             <button type="submit">Register</button>
         </form>
         <p><a href="{{ url_for('login') }}">Already have an account? Log in here.</a></p>
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <p>{{ message }}</p>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
     </div>
 
     <script>
