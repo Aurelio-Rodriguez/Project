@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = 'your_secret_key'  # Change this to a more secure key
 
+# Temporary in-memory database (resets when the app restarts)
 users_db = {}
 
 @app.route('/')
@@ -17,11 +18,11 @@ def register():
         password = request.form.get('password')
 
         if not username or not password:
-            flash("Username and password are required!")
+            flash("Username and password are required!", "error")
             return redirect(url_for('register'))
 
         if username in users_db:
-            flash("Username already exists. Please choose another one.")
+            flash("Username already exists. Please choose another one.", "error")
             return redirect(url_for('register'))
 
         if role == 'student':
@@ -48,7 +49,7 @@ def register():
                 'employee_id': employee_id
             }
 
-        flash("Account created successfully! Please log in.")
+        flash("Account created successfully! Please log in.", "success")
         return redirect(url_for('login'))
 
     return render_template('register.html')
@@ -56,17 +57,18 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form.get('username')
+        password = request.form.get('password')
 
         if username in users_db and users_db[username]['password'] == password:
-            flash("Login successful!")
+            flash("Login successful!", "success")
             if users_db[username]['role'] == 'student':
                 return redirect(url_for('student_dashboard'))
             else:
                 return redirect(url_for('admin_dashboard'))
         else:
-            flash("Invalid credentials, please try again.")
+            flash("Invalid credentials, please try again.", "error")
+            return redirect(url_for('login'))
 
     return render_template('login.html')
 
@@ -80,7 +82,7 @@ def admin_dashboard():
 
 @app.route('/logout', methods=['POST'])
 def logout():
-    flash("Logged out successfully!")
+    flash("Logged out successfully!", "success")
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
