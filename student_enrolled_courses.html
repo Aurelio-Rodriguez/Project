@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Enrolled Courses - UNITRACK</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .no-courses {
+            text-align: center;
+            padding: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Enrolled Courses</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Code</th>
+                    <th>Course Title</th>
+                    <th>Instructor</th>
+                    <th>Schedule</th>
+                    <th>Credit Hours</th>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr>
+                    <td colspan="5" class="no-courses">No courses enrolled</td>
+                 </tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

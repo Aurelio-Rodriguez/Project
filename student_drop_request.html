@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Drop Request - UNITRACK</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Submit Drop Request</h2>
+        <form action="#" method="POST">
+            <label for="name">Student Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="student-number">Student Number</label>
+            <input type="text" id="student-number" name="student_number" required>
+
+            <label for="email">Student Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="course">Choose Course to Drop</label>
+            <select id="course" name="course" required>
+                <option value="" disabled selected>Select a course</option>
+            </select>
+
+            <label for="reason">Reason for Dropping</label>
+            <textarea id="reason" name="reason" required></textarea>
+
+            <button type="submit">Submit Form</button>
+        </form>
+    </div>
+
+</body>
+</html>

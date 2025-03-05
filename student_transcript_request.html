@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Transcript Request - UNITRACK</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            align-self: flex-start;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .note {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Submit Transcript Request</h2>
+        <form>
+            <label for="name">Student Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="student-number">Student Number</label>
+            <input type="text" id="student-number" name="student-number" required>
+
+            <label for="email">Student Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="program-year">Program & Year</label>
+            <input type="text" id="program-year" name="program-year" required>
+
+            <label for="semester-year">Semester/Year Covered of Transcript Being Requested</label>
+            <input type="text" id="semester-year" name="semester-year" required>
+
+            <label for="copies">Number of Copies</label>
+            <input type="number" id="copies" name="copies" min="1" required>
+
+            <button type="submit">Submit Request</button>
+        </form>
+
+        <p class="note">
+    Transcript requests typically require 3-5 academic calendar days for processing and releasing. 
+    Please regularly check your student email for important updates regarding your request.
+</p>
+
+
+
+
+
+
+
+
+</p>
+    </div>
+
+</body>
+</html>
